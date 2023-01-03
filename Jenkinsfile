@@ -6,7 +6,7 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-                git 'https://github.com/ravdy/javaloginapp.git'
+                git 'https://github.com/GautamPandey03/Java_JDBC'
             }
          }        
        stage('Build'){
