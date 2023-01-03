@@ -12,13 +12,13 @@ pipeline {
                 echo 'Buiding project'
             }
         }
-        stage ('Scan and Build Jar File') {
-            steps {
-               withSonarQubeEnv(installationName: 'Sonarqube', credentialsId: 'SONAR_QUBE_TOKEN') {
-                sh 'mvn clean package sonar:sonar'
-                 echo 'Done'
-                }
-            }
-        }
+        stage('SCM') {
+    git 'https://github.com/GautamPandey03/Java_JDBC.git'
+  }
+  stage('SonarQube analysis') {
+    withSonarQubeEnv(credentialsId: 'Sonarqube_token', installationName: 'Sonarqube') { // You can override the credential to be used
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    }
+  }
     }
 }
