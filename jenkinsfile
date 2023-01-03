@@ -15,13 +15,13 @@ pipeline {
         stage('SCM') {
         steps
         {
-            git 'https://github.com/GautamPandey03/Java_JDBC.git'
+            git 'https://github.com/GautamPandey03/Java_JDBC'
         }
        }
   stage('SonarQube analysis') {
   steps
   {
-    withSonarQubeEnv(credentialsId: 'Sonarqube_token', installationName: 'Sonarqube') { // You can override the credential to be used
+    withSonarQubeEnv(credentialsId: '7438283d-2d4b-4ddb-a78f-a8dd696e053f', installationName: 'Sonarqube') { // You can override the credential to be used
       sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
     }
     echo 'Compiling..'
