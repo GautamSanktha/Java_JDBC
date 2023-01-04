@@ -20,4 +20,5 @@ stage("build & SonarQube analysis") {
               }
             }
         }
+     }
 }
